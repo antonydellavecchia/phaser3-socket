@@ -63,6 +63,14 @@ function create() {
     });
   });
 
+  // adds projection to game
+  this.socket.on('addObjectToGame', function(points) {
+    var polygon = new Phaser.Geom.Polygon(points);
+    graphics = self.add.graphics();
+    graphics.fillStyle(0xFFFFFF, 1.0);
+    graphics.fillPoints(polygon.points, true);
+  });
+  
   // add score board
   this.blueScoreText = this.add.text(16, 16, '', { fontSize: '32px', fill: '#0000FF' });
   this.redScoreText = this.add.text(584, 16, '', { fontSize: '32px', fill: '#FF0000' });
