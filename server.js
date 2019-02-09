@@ -43,6 +43,12 @@ io.on('connection', function (socket) {
     // emit a message to all players to remove this player
     io.emit('disconnect', socket.id);
   });
+
+  // add projections
+  socket.on('addProjection', function (points) {
+    console.log('projections');
+    socket.broadcast.emit('addObjectToGame', points)
+  });
   
   // send the players object to the new player
   socket.emit('currentPlayers', players);
@@ -85,6 +91,10 @@ io.on('connection', function (socket) {
   });
 });
 
-server.listen(8081,'192.168.2.32', function () {
+var bensIP = '192.168.0.115';
+var homesIP = '192.168.2.37';
+
+server.listen(8081, function () {
+
   console.log(`Listening on ${server.address().port}`);
 });
