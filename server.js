@@ -93,8 +93,9 @@ io.on('connection', function (socket) {
 
 var bensIP = '192.168.0.115';
 var homesIP = '192.168.2.37';
-
-server.listen(8081, function () {
+var wassertorIP = '192.168.1.6'
+var chiaraIP = '192.168.1.23'
+server.listen(2000, chiaraIP, function () {
 
   console.log(`Listening on ${server.address().port}`);
 });
